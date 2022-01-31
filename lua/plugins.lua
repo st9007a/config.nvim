@@ -41,7 +41,10 @@ function packer_startup_fn()
   }
   packer.use {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
+    run = ':TSUpdate',
+    requires = {
+      {'nvim-treesitter/nvim-treesitter-textobjects'},
+    },
   }
   packer.use {
     'numToStr/Comment.nvim',
