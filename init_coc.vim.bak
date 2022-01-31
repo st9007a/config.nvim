@@ -1,0 +1,191 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'cybrown-zoox/vim-pbtxt'
+Plugin 'preservim/tagbar'
+" Rust syntax
+Plugin 'rust-lang/rust.vim'
+" Python syntax and indent style
+Plugin 'numirias/semshi'
+Plugin 'hynek/vim-python-pep8-indent'
+" Show trailing whitespace
+Plugin 'ntpeters/vim-better-whitespace'
+" Auto-comment
+Plugin 'tomtom/tcomment_vim'
+" Pretty status bar
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+" Show file change via git
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+" Template
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
+Plugin 'ervandew/supertab'
+Plugin 'neoclide/coc.nvim'
+
+call vundle#end()
+filetype plugin indent on
+
+let g:python_highlight_all=1
+let g:html_indent_inctags='html,head,body'
+let g:gitgutter_diff_base='HEAD'
+
+let g:ultisnips_python_style='google'
+let g:UltiSnipsSnippetsDir = $HOME."/.vim/UltiSnips"
+let g:UltiSnipsSnippetDirectories = ['UltiSnips', $HOME.'/.vim/UltiSnips']
+
+let g:airline_theme = "ayu_dark"
+let g:airline#extensions#branch#enabled=1
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+let g:semshi#error_sign = v:false
+let g:semshi#mark_selected_nodes = 0
+
+" Set gitgutter update frequency
+set updatetime=100
+
+set background=dark
+set t_AF=^[[1;3%p1%dm
+set t_AB=^[[4%p1%dm
+
+set incsearch
+set nohlsearch
+set modelines=1
+set nofoldenable
+set nowrap
+set nrformats=alpha,octal,hex
+set number
+set numberwidth=1
+set ruler
+set wildmenu
+set backspace=indent,eol,start
+
+syntax on
+highlight Comment ctermfg=DarkBlue
+highlight DiffAdd ctermfg=Gray ctermbg=Green
+highlight DiffChange ctermfg=Gray ctermbg=Yellow
+highlight DiffDelete ctermfg=Gray ctermbg=Red
+highlight DiffText ctermfg=DarkGray ctermbg=Gray
+highlight Incsearch ctermfg=White
+highlight LineNr ctermfg=DarkGray
+highlight Visual ctermfg=White
+
+highlight Directory ctermfg=Cyan
+highlight Constant ctermfg=Magenta
+highlight Special ctermfg=Red
+highlight PreProc ctermfg=Blue
+
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd FileType yaml,html,css,javascript,ls,vue,typescript setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType javascript setlocal filetype=javascript.jsx
+autocmd FileType javascript.jsx setlocal autoindent
+autocmd FileType pug,sass,styl setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType json setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType perl,java setlocal expandtab shiftwidth=4 softtabstop=4
+autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4 completeopt-=preview
+autocmd FileType sh,make setlocal shiftwidth=4 tabstop=4
+autocmd FileType c,cuda,cpp,cmake setlocal shiftwidth=4 tabstop=4 expandtab
+autocmd FileType php setlocal shiftwidth=4 tabstop=4 expandtab
+autocmd BufNewFile *.h setlocal shiftwidth=4 tabstop=4 expandtab
+autocmd BufNewFile,BufEnter *.pbtxt setlocal filetype=pbtxt expandtab shiftwidth=2 softtabstop=2
+
+nnoremap <Tab> <C-W>w
+nnoremap <C-W><C-W> <C-W>p
+nnoremap + <C-W>+
+nnoremap _ <C-W>-
+nnoremap < <C-W><
+nnoremap > <C-W>>
+nnoremap <C-C> <C-A>
+nnoremap <BS> :TagbarToggle<CR>
+autocmd FileType rust nnoremap :rr :RustRun
+autocmd FileType rust nnoremap :rt :RustTest
+" leave terminal via ESC
+tnoremap <Esc> <C-\><C-n>
+xnoremap s :sort<CR>
+
+" vim-fugitive
+nnoremap :blame<CR> :Git blame<CR>
+nnoremap :mergetool<CR> :Git mergetool<CR>
+nnoremap :difftool :Git difftool
+nnoremap :diff :Git diff
+
+" The following setting is for COC
+
+let g:coc_global_extensions = [
+\ 'coc-lists',
+\ 'coc-json',
+\ 'coc-pyright',
+\ 'coc-clangd',
+\ 'coc-explorer',
+\ 'coc-tabnine',
+\ 'coc-rust-analyzer',
+\ ]
+
+highlight CocFloating guibg=#333333 ctermbg=237
+highlight Pmenu ctermbg=237 ctermfg=White
+highlight PmenuThumb ctermbg=Gray
+highlight PmenuSbar ctermbg=Black
+
+" Run isort after save
+autocmd BufWritePost *.py :CocCommand python.sortImports
+" Highlight node usage when hover
+autocmd CursorHold * silent call CocActionAsync('highlight')
+" Show function signature with 'K'
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Scroll on floating window via Ctrl-f and Ctrl-b
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Apply auto-fix to current line
+nmap <leader>f  <Plug>(coc-fix-current)
+
+" Code Action with \a
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Rename with \r
+nmap <leader>r <Plug>(coc-rename)
+
+" Show diagnostics
+nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+" Show commands.
+nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+" Search workspace symbols.
+nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+" Manage extensions.
+nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+
+nmap ` :CocCommand explorer --toggle --sources=buffer+,file+<CR>
+
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
