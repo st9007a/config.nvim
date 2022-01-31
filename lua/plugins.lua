@@ -19,7 +19,9 @@ function packer_startup_fn()
   packer.use 'tami5/lspsaga.nvim'
   packer.use {
     'jose-elias-alvarez/null-ls.nvim',
-    requires = {'nvim-lua/plenary.nvim'},
+    requires = {
+      'nvim-lua/plenary.nvim',
+    },
   }
   packer.use 'navarasu/onedark.nvim'
   packer.use {
@@ -43,18 +45,12 @@ function packer_startup_fn()
   }
   packer.use {
     'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup({
-        toggler = {
-          line = 'gcc',
-          block = 'gc',
-        },
-      })
-    end
   }
   packer.use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    requires = {
+      {'kyazdani42/nvim-web-devicons', opt = true},
+    },
   }
   packer.use {
     'nvim-telescope/telescope.nvim',
@@ -70,6 +66,7 @@ packer.startup(packer_startup_fn)
 
 require('setup/onedark')
 require('setup/lualine')
+require('setup/comment')
 require('setup/treesitter')
 require('setup/git')
 require('setup/telescope')
