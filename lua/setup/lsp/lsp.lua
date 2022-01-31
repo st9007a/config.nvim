@@ -47,9 +47,9 @@ lspconfig.pyright.setup {
     python = {
       analysis = {
         typeshedPaths = {
-          '/Users/st9007a/.config/pyright/typeshed',
+          'HOME/.config/pyright/typeshed',
         },
-        stubPath = '/Users/st9007a/.config/pyright/python-type-stubs',
+        stubPath = 'HOME/.config/pyright/python-type-stubs',
       },
     },
   },
