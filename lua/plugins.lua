@@ -60,7 +60,8 @@ function packer_startup_fn()
     'nvim-telescope/telescope.nvim',
     requires = {
       {'nvim-lua/plenary.nvim'},
-      {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+      {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
+      {'nvim-telescope/telescope-file-browser.nvim'},
     }
   }
 end
@@ -71,4 +72,5 @@ require('setup/onedark')
 require('setup/lualine')
 require('setup/treesitter')
 require('setup/git')
+require('setup/telescope')
 require('setup/lsp/lsp')
