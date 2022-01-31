@@ -27,9 +27,6 @@ function packer_startup_fn()
     requires = {
       'nvim-lua/plenary.nvim'
     },
-    config = function()
-      require('gitsigns').setup()
-    end
   }
   packer.use {
     'hrsh7th/nvim-cmp',
@@ -70,7 +67,8 @@ end
 
 packer.startup(packer_startup_fn)
 
-require('setup/lsp/lsp')
-require('setup/treesitter')
 require('setup/onedark')
 require('setup/lualine')
+require('setup/treesitter')
+require('setup/git')
+require('setup/lsp/lsp')

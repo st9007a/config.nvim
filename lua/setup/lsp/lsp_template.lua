@@ -36,13 +36,15 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_command('autocmd CursorHoldI,CursorMovedI * Lspsaga signature_help')
 end
 
+local capabilities = completion.get_capabilities()
+
 lspconfig.pyright.setup {
   on_attach = on_attach,
   flags = {
     -- This will be the default in neovim 0.7+
     debounce_text_changes = 150,
   },
-  capabilities = completion.get_capabilities(),
+  capabilities = capabilities,
   settings = {
     python = {
       analysis = {
