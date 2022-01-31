@@ -10,7 +10,11 @@ development with Python and Git.
 
 ## Configuration
 
+For now, `configure.sh` works on MacOS only.
+
 ```bash
+$ git clone https://github.com/st9007a/NeovimConfig.git ~/.config/nvim
+$ cd ~/.config/nvim
 $ git submodule update --init --recursive
 $ ./configure.sh
 ```
