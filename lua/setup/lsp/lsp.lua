@@ -47,9 +47,9 @@ lspconfig.pyright.setup {
     python = {
       analysis = {
         typeshedPaths = {
-          'HOME/.config/pyright/typeshed',
+          'HOME/.config/nvim/lib/python/typeshed',
         },
-        stubPath = 'HOME/.config/pyright/python-type-stubs',
+        stubPath = 'HOME/.config/nvim/lib/python/python-type-stubs',
       },
     },
   },
