@@ -1,6 +1,7 @@
 local onedark = require('onedark')
 
 onedark.setup {
-  style = 'darker'
+  style = 'darker',
+  transparent = true,
 }
 onedark.load()
