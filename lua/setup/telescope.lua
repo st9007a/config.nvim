@@ -42,13 +42,13 @@ local keymap_options = { noremap = true }
 
 vim.api.nvim_set_keymap(
   'n',
-  '`',
+  '<space>f',
   '<cmd>Telescope file_browser<CR>',
   keymap_options
 )
 vim.api.nvim_set_keymap(
   'n',
-  '<space>f',
+  '<space>s',
   [[<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<CR>]],
   keymap_options
 )
