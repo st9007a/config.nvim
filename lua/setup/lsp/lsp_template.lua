@@ -27,17 +27,13 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '[e', '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', ']e', '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
 
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-
   vim.api.nvim_command('autocmd BufWritePost * lua vim.lsp.buf.formatting()')
   vim.api.nvim_command('autocmd CursorHoldI,CursorMovedI * Lspsaga signature_help')
 end
 
 lspsaga.init_lsp_saga()
 
-vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>Lspsaga open_floaterm<CR>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<space>t', '<cmd>Lspsaga open_floaterm<CR>', {noremap=true})
 vim.api.nvim_set_keymap('n', '<esc>', '<cmd>Lspsaga close_floaterm<CR>', {noremap=true})
 
 local capabilities = completion.get_capabilities()
