@@ -42,12 +42,18 @@ $ nvim +PackerSync
 
 ## Features
 
-- Language server features with builtin LSP.
-  - LSP features with Python
-  - Code actions with git.
-  - Powerful LSP client UI.
-- Syntax-based features from nvim-treesitter.
-  - Hightlighting
-  - Textobject
-- File/Buffer explorers from telescope.nvim
-- Auto-comment
+- Language server protocal.
+- Some features derived from treesitter.
+  - Semantic highlighting.
+  - Syntax-based text object.
+- Bunches of telescope-based explorers
+  - Builtin explorers
+  - File browser
+- Toggle comment in the code.
+- UI
+  - Onedark
+  - Status line
+  - Devicons
+
+
+## Hotkey Mapping
