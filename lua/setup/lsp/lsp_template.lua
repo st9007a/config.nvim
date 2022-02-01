@@ -8,7 +8,6 @@ local on_attach = function(client, bufnr)
 
   local opts = { noremap=true, silent=true }
 
-  lspsaga.init_lsp_saga()
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -35,6 +34,11 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_command('autocmd BufWritePost * lua vim.lsp.buf.formatting()')
   vim.api.nvim_command('autocmd CursorHoldI,CursorMovedI * Lspsaga signature_help')
 end
+
+lspsaga.init_lsp_saga()
+
+vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>Lspsaga open_floaterm<CR>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<esc>', '<cmd>Lspsaga close_floaterm<CR>', {noremap=true})
 
 local capabilities = completion.get_capabilities()
 
