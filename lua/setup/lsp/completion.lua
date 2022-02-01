@@ -3,9 +3,14 @@ local cmp_nvim_lsp = require('cmp_nvim_lsp')
 local M = {}
 
 cmp.setup({
-  sources = cmp.config.sources({
+  sources = cmp.config.sources(
+  {
     { name = 'nvim_lsp' },
-  }, {
+  },
+  {
+    { name = 'path' },
+  },
+  {
     { name = 'buffer' },
   }),
   mapping = {
