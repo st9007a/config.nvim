@@ -40,16 +40,27 @@ telescope.load_extension('file_browser')
 
 local keymap_options = { noremap = true }
 
-vim.api.nvim_set_keymap('n', '`', '<cmd>Telescope file_browser<CR>', keymap_options)
+vim.api.nvim_set_keymap(
+  'n',
+  '`',
+  '<cmd>Telescope file_browser<CR>',
+  keymap_options
+)
 vim.api.nvim_set_keymap(
   'n',
   '<space>f',
-  "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<CR>",
+  [[<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<CR>]],
   keymap_options
 )
 vim.api.nvim_set_keymap(
   'n',
   '<space>b',
-  "<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({}))<CR>",
+  [[<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({}))<CR>]],
+  keymap_options
+)
+vim.api.nvim_set_keymap(
+  'n',
+  '<bs>',
+  [[<cmd>lua require'telescope.builtin'.treesitter()<CR>]],
   keymap_options
 )
