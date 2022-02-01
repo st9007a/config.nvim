@@ -1,5 +1,5 @@
 local telescope = require('telescope')
-local fb_actions = require "telescope".extensions.file_browser.actions
+local fb_actions = telescope.extensions.file_browser.actions
 
 telescope.setup {
   extensions = {
@@ -30,9 +30,11 @@ telescope.setup {
           ["h"] = fb_actions.toggle_hidden,
         },
       },
+      grouped = true,
     },
   },
 }
+
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 telescope.load_extension('fzf')
@@ -40,12 +42,6 @@ telescope.load_extension('file_browser')
 
 local keymap_options = { noremap = true }
 
-vim.api.nvim_set_keymap(
-  'n',
-  '<space>f',
-  '<cmd>Telescope file_browser<CR>',
-  keymap_options
-)
 vim.api.nvim_set_keymap(
   'n',
   '<space>s',
@@ -62,5 +58,11 @@ vim.api.nvim_set_keymap(
   'n',
   '<bs>',
   [[<cmd>lua require'telescope.builtin'.treesitter()<CR>]],
+  keymap_options
+)
+vim.api.nvim_set_keymap(
+  'n',
+  '<space>f',
+  [[<cmd>lua require'telescope'.extensions.file_browser.file_browser({path=require'plenary.path':new(vim.fn.expand('%')):parent().filename}) <CR>]],
   keymap_options
 )
