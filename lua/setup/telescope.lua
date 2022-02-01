@@ -56,7 +56,7 @@ vim.api.nvim_set_keymap(
 )
 vim.api.nvim_set_keymap(
   'n',
-  '<bs>',
+  '<space>r',
   [[<cmd>lua require'telescope.builtin'.treesitter()<CR>]],
   keymap_options
 )

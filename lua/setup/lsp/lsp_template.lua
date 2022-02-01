@@ -22,13 +22,16 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>r', '<cmd>Lspsaga rename<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>a', '<cmd>Lspsaga code_action<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>s', '<cmd>Lspsaga signature_help<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>k', '<cmd>Lspsaga hover_doc<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>d', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'fmt', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'v', 'fmt', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
 
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '[e', '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', ']e', '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
 
-  vim.api.nvim_command('autocmd BufWritePost * lua vim.lsp.buf.formatting()')
+  vim.api.nvim_command('autocmd BufWritePre * lua vim.lsp.buf.formatting()')
   vim.api.nvim_command('autocmd CursorHoldI,CursorMovedI * Lspsaga signature_help')
 end
 
