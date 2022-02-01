@@ -115,6 +115,10 @@ First `<esc>` is for leaving insert mode.
 Second `<esc>` is for closing floating windows.
 
 
+### Text Object
+
+TODO
+
 ### Others
 
 Hot keys to toggle comment:
