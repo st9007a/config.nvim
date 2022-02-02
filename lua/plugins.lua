@@ -20,14 +20,13 @@ function packer_startup_fn()
   packer.use {
     'jose-elias-alvarez/null-ls.nvim',
     requires = {
-      'nvim-lua/plenary.nvim',
-    },
-  }
-  packer.use 'navarasu/onedark.nvim'
-  packer.use {
-    'lewis6991/gitsigns.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim'
+      { 'nvim-lua/plenary.nvim' },
+      {
+        'lewis6991/gitsigns.nvim',
+        requires = {
+          'nvim-lua/plenary.nvim'
+        },
+      },
     },
   }
   packer.use {
@@ -49,6 +48,7 @@ function packer_startup_fn()
   packer.use {
     'numToStr/Comment.nvim',
   }
+  packer.use {'navarasu/onedark.nvim'}
   packer.use {
     'nvim-lualine/lualine.nvim',
     requires = {
