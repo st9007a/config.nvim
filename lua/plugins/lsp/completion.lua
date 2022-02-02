@@ -1,11 +1,18 @@
 local cmp = require('cmp')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
+local luasnip = require('luasnip')
 local M = {}
 
 cmp.setup({
+  snippets = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
   sources = cmp.config.sources(
   {
     { name = 'nvim_lsp' },
+    { name = 'luasnip' },
   },
   {
     { name = 'path' },
@@ -23,6 +30,7 @@ cmp.setup({
       c = cmp.mapping.close(),
     }),
     ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<Tab>'] = cmp.mapping.select_next_item(),
   },
 })
 
@@ -35,9 +43,10 @@ cmp.setup.cmdline('/', {
   -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
   sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
+    { name = 'path' },
+  },
+  {
+    { name = 'cmdline' },
   })
 })
 
