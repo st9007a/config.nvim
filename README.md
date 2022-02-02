@@ -35,7 +35,7 @@ The following languages will be supported soon (maybe).
 ## Configuration
 
 ```bash
-$ git clone https://github.com/st9007a/NeovimConfig.git ~/.config/nvim
+$ git clone https://github.com/st9007a/config.nvim.git ~/.config/nvim
 $ cd ~/.config/nvim
 $ git submodule update --init --recursive
 $ ./configure.sh

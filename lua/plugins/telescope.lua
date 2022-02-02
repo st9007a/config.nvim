@@ -60,6 +60,8 @@ vim.api.nvim_set_keymap(
   [[<cmd>lua require'telescope.builtin'.treesitter()<CR>]],
   keymap_options
 )
+
+-- FIXME: path is wrong when launch nvim without any file.
 vim.api.nvim_set_keymap(
   'n',
   '<space>f',
