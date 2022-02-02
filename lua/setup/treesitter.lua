@@ -32,12 +32,12 @@ treesitter.setup {
     swap = {
       enable = true,
       swap_next = {
-        ["<right>p"] = "@parameter.inner",
-        ["<right>f"] = "@function.outer",
+        ["]p"] = "@parameter.inner",
+        ["]f"] = "@function.outer",
       },
       swap_previous = {
-        ["<left>p"] = "@parameter.inner",
-        ["<left>f"] = "@function.outer",
+        ["[p"] = "@parameter.inner",
+        ["[f"] = "@function.outer",
       },
     },
     move = {

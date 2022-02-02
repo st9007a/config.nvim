@@ -117,7 +117,14 @@ Second `<esc>` is for closing floating windows.
 
 ### Text Object
 
-TODO
+Hot keys of text objects follow naive vim configuration. Start by `i` for inner, `a` for outer:
+
+- Function: `if`, `af`
+- Class: `ic`, `ac`
+- Loop: `il`, `al`
+- Conditional: `ii`, `ai`
+- Block: `ib`, `ab`
+
 
 ### Others
 
@@ -132,7 +139,7 @@ Hot keys of cursor moving behaviours start by `[` or `]`:
 - Jump to previous/next function: `[m` and `]m`
 - Jump to previous/next class: `[c` and `]c`
 
-Hot keys to swap functions or function parameters start by `<left>` or `<right>`
+Hot keys to swap functions or function parameters also start by `[` or `]`
 
-- Swap function with previous/next function: `<left>f` and `<right>f`
-- Swap function parameter with previous/next function parameter: `<left>p` and `<right>p`
+- Swap function with previous/next function: `[f` and `]f`
+- Swap function parameter with previous/next function parameter: `[p` and `]p`
