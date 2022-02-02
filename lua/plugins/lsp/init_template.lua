@@ -1,8 +1,8 @@
-require('setup/lsp/fallback')
+require('plugins/lsp/fallback')
 
 local lspsaga = require('lspsaga')
 local lspconfig = require('lspconfig')
-local completion = require('setup/lsp/completion')
+local completion = require('plugins/lsp/completion')
 
 local on_attach = function(client, bufnr)
 

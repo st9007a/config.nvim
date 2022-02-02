@@ -67,10 +67,10 @@ end
 
 packer.startup(packer_startup_fn)
 
-require('setup/onedark')
-require('setup/lualine')
-require('setup/comment')
-require('setup/treesitter')
-require('setup/git')
-require('setup/telescope')
-require('setup/lsp/lsp')
+require('plugins/onedark')
+require('plugins/lualine')
+require('plugins/comment')
+require('plugins/treesitter')
+require('plugins/git')
+require('plugins/telescope')
+require('plugins/lsp')

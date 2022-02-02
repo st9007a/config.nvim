@@ -1,3 +1,3 @@
 #!/bin/sh
 
-sed "s~HOME~$HOME~g" lua/setup/lsp/lsp_template.lua > lua/setup/lsp/lsp.lua
+sed "s~HOME~$HOME~g" lua/plugins/lsp/init_template.lua > lua/plugins/lsp/init.lua
