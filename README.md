@@ -15,6 +15,7 @@ There are some advantages of this config:
 ## Supported Languages
 
 - Python 3
+- Lua
 
 ### TODO
 
@@ -22,7 +23,6 @@ The following languages will be supported soon (maybe).
 
 - Rust
 - C/C++
-- Lua
 - Markdown
 
 ## Requirements
