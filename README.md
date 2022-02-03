@@ -150,3 +150,4 @@ Hot keys to swap functions or function parameters also start by `[` or `]`
 - Modularize current configuration.
 - Add snippets.
 - Adjust colorscheme.
+- Adjust telescope layout.
