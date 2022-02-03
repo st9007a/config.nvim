@@ -13,7 +13,7 @@ vim.cmd [[
 
 local packer = require('packer')
 
-function packer_startup_fn()
+local packer_startup_fn = function ()
   packer.use 'wbthomason/packer.nvim'
   packer.use 'neovim/nvim-lspconfig'
   packer.use 'tami5/lspsaga.nvim'
