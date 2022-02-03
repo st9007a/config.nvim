@@ -143,3 +143,10 @@ Hot keys to swap functions or function parameters also start by `[` or `]`
 
 - Swap function with previous/next function: `[f` and `]f`
 - Swap function parameter with previous/next function parameter: `[p` and `]p`
+
+
+## Roadmap
+
+- Modularize current configuration.
+- Add snippets.
+- Adjust colorscheme.
