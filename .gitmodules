@@ -4,3 +4,6 @@
 [submodule "lib/python/typeshed"]
 	path = lib/python/typeshed
 	url = https://github.com/python/typeshed.git
+[submodule "lib/lua/lua-language-server"]
+	path = lib/lua/lua-language-server
+	url = https://github.com/sumneko/lua-language-server
