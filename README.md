@@ -15,13 +15,13 @@ There are some advantages of this config:
 ## Supported Languages
 
 - Python 3
-- Lua
+- Lua (lack document to configure language server)
+- Rust (lack document to configure language server)
 
 ### TODO
 
 The following languages will be supported soon (maybe).
 
-- Rust
 - C/C++
 - Markdown
 

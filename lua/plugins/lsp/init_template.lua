@@ -65,7 +65,7 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-require'lspconfig'.sumneko_lua.setup {
+lspconfig.sumneko_lua.setup {
   on_attach = on_attach,
   cmd = {
     "HOME/.config/nvim/lib/lua/lua-language-server/bin/lua-language-server"
@@ -98,4 +98,13 @@ require'lspconfig'.sumneko_lua.setup {
       },
     },
   },
+}
+
+lspconfig.rust_analyzer.setup {
+  on_attach = on_attach,
+  flags = {
+    -- This will be the default in neovim 0.7+
+    debounce_text_changes = 150,
+  },
+  capabilities = capabilities,
 }
