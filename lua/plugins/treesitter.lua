@@ -61,4 +61,7 @@ treesitter.setup {
       },
     },
   },
+  playground = {
+    enable = true,
+  },
 }
