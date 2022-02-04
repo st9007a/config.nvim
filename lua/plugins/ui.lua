@@ -7,7 +7,7 @@ vim.g.nvim_tree_icons = {
 vim.o.termguicolors = true
 
 vim.api.nvim_set_keymap('n', '`', ':NvimTreeToggle<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<space>a', ':ToggleTermToggleAll<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-a>', ':ToggleTermToggleAll<CR>', {noremap = true})
 
 require('nvim-web-devicons').setup {}
 require('lualine').setup({
@@ -28,14 +28,6 @@ require("bufferline").setup({
       local icon = level:match("error") and " " or " "
       return " " .. icon .. count
     end,
-    offsets = {
-      {
-        filetype = "NvimTree",
-        text = '',
-        highlight = "Directory",
-        text_align = "left"
-      },
-    },
   },
 })
 
@@ -54,6 +46,6 @@ require('nvim-tree').setup({
 })
 
 require('toggleterm').setup({
-  open_mapping = [[<space>t]],
+  open_mapping = [[<C-\>]],
   insert_mappings = false,
 })

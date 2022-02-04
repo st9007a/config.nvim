@@ -140,9 +140,8 @@ Second `<esc>` is for closing floating windows.
 ### UI
 
 Hot key of file explorer is "\`".
-Hot key to toggle a terminal is `<space>t`.
-Hot key to toggle all terminals is `<space>a`.
-
+Hot key to toggle a terminal is `<C-\>`.
+Hot key to toggle all terminals is `<C-a>`.
 
 ### Text Object
 
@@ -173,10 +172,8 @@ Hot keys to swap functions or function parameters also start by `[` or `]`
 - Swap function with previous/next function: `[f` and `]f`
 - Swap function parameter with previous/next function parameter: `[p` and `]p`
 
-
 ## Roadmap
 
 - Modularize current configuration.
 - Add snippets.
 - Adjust colorscheme.
-- Adjust telescope layout.
