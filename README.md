@@ -63,6 +63,12 @@ $ cd ../..
 $ ./3rd/luamake/luamake rebuild
 ```
 
+Or,
+
+```bash
+$ ./install_lua_language_server.sh
+```
+
 - rust-analyzer: [https://github.com/rust-analyzer/rust-analyzer](https://github.com/rust-analyzer/rust-analyzer)
 
 ## Features
