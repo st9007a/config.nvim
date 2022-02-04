@@ -12,16 +12,18 @@ telescope.setup {
     },
     file_browser = {
       theme = "ivy",
+      path = "%:p:h",
       mappings = {
-        ["i"] = {
+        i = {
           ["<C-c>"] = fb_actions.create,
           ["<C-r>"] = fb_actions.rename,
           ["<C-d>"] = fb_actions.remove,
           ["<C-m>"] = fb_actions.move,
           ["<C-y>"] = fb_actions.copy,
           ["<C-h>"] = fb_actions.toggle_hidden,
+          -- ["<CR>"] = actions.select_default,  -- FIXME: it didn't work sometimes.
         },
-        ["n"] = {
+        n = {
           ["c"] = fb_actions.create,
           ["r"] = fb_actions.rename,
           ["d"] = fb_actions.remove,
@@ -61,10 +63,9 @@ vim.api.nvim_set_keymap(
   keymap_options
 )
 
--- FIXME: path is wrong when launch nvim without any file.
 vim.api.nvim_set_keymap(
   'n',
   '<space>f',
-  [[<cmd>lua require'telescope'.extensions.file_browser.file_browser({path=require'plenary.path':new(vim.fn.expand('%')):parent().filename}) <CR>]],
+  [[<cmd>Telescope file_browser<CR>]],
   keymap_options
 )
