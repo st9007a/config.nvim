@@ -5,11 +5,8 @@ vim.g.nvim_tree_icons = {
   },
 }
 vim.o.termguicolors = true
-vim.cmd [[highlight NvimTreeFolderIcon guifg=lightblue]]
-
 
 vim.api.nvim_set_keymap('n', '`', ':NvimTreeToggle<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<space>t', ':ToggleTerm<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<space>a', ':ToggleTermToggleAll<CR>', {noremap = true})
 
 require('nvim-web-devicons').setup {}
@@ -34,7 +31,7 @@ require("bufferline").setup({
     offsets = {
       {
         filetype = "NvimTree",
-        text = 'File Explorer',
+        text = '',
         highlight = "Directory",
         text_align = "left"
       },
@@ -56,4 +53,7 @@ require('nvim-tree').setup({
   },
 })
 
-require('toggleterm').setup()
+require('toggleterm').setup({
+  open_mapping = [[<space>t]],
+  insert_mappings = false,
+})
