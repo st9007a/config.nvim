@@ -4,6 +4,21 @@ local lspsaga = require('lspsaga')
 local lspconfig = require('lspconfig')
 local completion = require('plugins/lsp/completion')
 
+local table_copy = function(obj)
+  local obj_copy = {}
+  for k,v in pairs(obj) do
+    obj_copy[k] = v
+  end
+  return obj_copy
+end
+
+local table_merge = function (t1, t2)
+  for k, v in pairs(t2) do
+    t1[k] = v
+  end
+  return t1
+end
+
 local on_attach = function(client, bufnr)
 
   local opts = { noremap=true, silent=true }
@@ -42,69 +57,24 @@ vim.api.nvim_set_keymap('n', '<esc>', '<cmd>Lspsaga close_floaterm<CR>', {norema
 
 local capabilities = completion.get_capabilities()
 
-lspconfig.pyright.setup {
-  on_attach = on_attach,
-  flags = {
-    -- This will be the default in neovim 0.7+
-    debounce_text_changes = 150,
-  },
-  capabilities = capabilities,
-  settings = {
-    python = {
-      analysis = {
-        typeshedPaths = {
-          'HOME/.config/nvim/lib/python/typeshed',
-        },
-        stubPath = 'HOME/.config/nvim/lib/python/python-type-stubs',
-      },
+local servers = {
+  'pyright',
+  'sumneko_lua',
+  'rust_analyzer',
+}
+
+local default_setup = {
+    on_attach = on_attach,
+    flags = {
+      -- This will be the default in neovim 0.7+
+      debounce_text_changes = 150,
     },
-  },
+    capabilities = capabilities,
 }
 
-local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
 
-lspconfig.sumneko_lua.setup {
-  on_attach = on_attach,
-  cmd = {
-    "HOME/.config/nvim/lib/lua/lua-language-server/bin/lua-language-server"
-  },
-  flags = {
-    -- This will be the default in neovim 0.7+
-    debounce_text_changes = 150,
-  },
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT',
-        -- Setup your lua path
-        path = runtime_path,
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-        checkThirdParty = false,
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
-}
-
-lspconfig.rust_analyzer.setup {
-  on_attach = on_attach,
-  flags = {
-    -- This will be the default in neovim 0.7+
-    debounce_text_changes = 150,
-  },
-  capabilities = capabilities,
-}
+for _, server in ipairs(servers) do
+  local setup = table_copy(default_setup)
+  setup = table_merge(setup, require('plugins.lsp.' .. server))
+  lspconfig[server].setup(setup)
+end
