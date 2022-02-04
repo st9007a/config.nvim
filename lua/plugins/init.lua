@@ -55,7 +55,7 @@ local packer_startup_fn = function ()
   packer.use {
     'nvim-lualine/lualine.nvim',
     requires = {
-      {'kyazdani42/nvim-web-devicons', opt = true},
+      {'kyazdani42/nvim-web-devicons'},
     },
   }
   packer.use {
@@ -65,11 +65,16 @@ local packer_startup_fn = function ()
     },
   }
   packer.use {
+      'kyazdani42/nvim-tree.lua',
+      requires = {
+        { 'kyazdani42/nvim-web-devicons' },
+      },
+  }
+  packer.use {
     'nvim-telescope/telescope.nvim',
     requires = {
       {'nvim-lua/plenary.nvim'},
       {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
-      {'nvim-telescope/telescope-file-browser.nvim'},
     }
   }
 end
@@ -77,7 +82,7 @@ end
 packer.startup(packer_startup_fn)
 
 require('plugins/onedark')
-require('plugins/line')
+require('plugins/ui')
 require('plugins/comment')
 require('plugins/treesitter')
 require('plugins/git')

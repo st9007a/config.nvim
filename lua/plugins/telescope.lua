@@ -1,5 +1,4 @@
 local telescope = require('telescope')
-local fb_actions = telescope.extensions.file_browser.actions
 
 telescope.setup {
   extensions = {
@@ -10,37 +9,12 @@ telescope.setup {
       case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
                                        -- the default case_mode is "smart_case"
     },
-    file_browser = {
-      theme = "ivy",
-      path = "%:p:h",
-      mappings = {
-        i = {
-          ["<C-c>"] = fb_actions.create,
-          ["<C-r>"] = fb_actions.rename,
-          ["<C-d>"] = fb_actions.remove,
-          ["<C-m>"] = fb_actions.move,
-          ["<C-y>"] = fb_actions.copy,
-          ["<C-h>"] = fb_actions.toggle_hidden,
-          -- ["<CR>"] = actions.select_default,  -- FIXME: it didn't work sometimes.
-        },
-        n = {
-          ["c"] = fb_actions.create,
-          ["r"] = fb_actions.rename,
-          ["d"] = fb_actions.remove,
-          ["m"] = fb_actions.move,
-          ["y"] = fb_actions.copy,
-          ["h"] = fb_actions.toggle_hidden,
-        },
-      },
-      grouped = true,
-    },
   },
 }
 
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 telescope.load_extension('fzf')
-telescope.load_extension('file_browser')
 
 local keymap_options = { noremap = true }
 
@@ -60,12 +34,5 @@ vim.api.nvim_set_keymap(
   'n',
   '<space>r',
   [[<cmd>lua require'telescope.builtin'.treesitter()<CR>]],
-  keymap_options
-)
-
-vim.api.nvim_set_keymap(
-  'n',
-  '<space>f',
-  [[<cmd>Telescope file_browser<CR>]],
   keymap_options
 )
