@@ -54,6 +54,7 @@ And then, launch nvim and install treesitter parsers in vim command line:
   - To install pyright, you need to install `node.js`.
 
 - lua-language-server: [https://github.com/sumneko/lua-language-server](https://github.com/sumneko/lua-language-server)
+  - To build lua-language-server, you need to install [ninja](https://github.com/ninja-build/ninja).
   - Its a submodule in `lib/lua/lua-language-server`. Use following command to install it:
 
 ```bash
