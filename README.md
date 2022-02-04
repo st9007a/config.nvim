@@ -1,4 +1,4 @@
-# Neovim Config
+# My NeoVim Configuration
 
 I quitted `coc.nvim` and chose neovim builtin lsp.
 
@@ -15,8 +15,8 @@ There are some advantages of this config:
 ## Supported Languages
 
 - Python 3
-- Lua (lack document to configure language server)
-- Rust (lack document to configure language server)
+- Lua
+- Rust
 
 ### TODO
 
@@ -29,16 +29,13 @@ The following languages will be supported soon (maybe).
 
 - neovim >= v0.6.1
 - packer.nvim: [https://github.com/wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
-- pyright: [https://github.com/microsoft/pyright](https://github.com/microsoft/pyright)
-  - To install pyright, you need to install `node.js`.
 
-## Configuration
+## Installation
 
 ```bash
 $ git clone https://github.com/st9007a/config.nvim.git ~/.config/nvim
 $ cd ~/.config/nvim
 $ git submodule update --init --recursive
-$ ./configure.sh
 $ nvim +PackerSync
 ```
 
@@ -47,7 +44,26 @@ And then, launch nvim and install treesitter parsers in vim command line:
 ```
 :TSInstall python
 :TSInstall lua
+:TSInstall query
+:TSInstall rust
 ```
+
+### Optional
+
+- pyright: [https://github.com/microsoft/pyright](https://github.com/microsoft/pyright)
+  - To install pyright, you need to install `node.js`.
+
+- lua-language-server: [https://github.com/sumneko/lua-language-server](https://github.com/sumneko/lua-language-server)
+  - Its a submodule in `lib/lua/lua-language-server`. Use following command to install it:
+
+```bash
+$ cd lib/lua/lua-language-server/3rd/luamake
+$ ./compile/install.sh
+$ cd ../..
+$ ./3rd/luamake/luamake rebuild
+```
+
+- rust-analyzer: [https://github.com/rust-analyzer/rust-analyzer](https://github.com/rust-analyzer/rust-analyzer)
 
 ## Features
 
