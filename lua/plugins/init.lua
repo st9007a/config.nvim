@@ -59,6 +59,12 @@ local packer_startup_fn = function ()
     },
   }
   packer.use {
+    'akinsho/bufferline.nvim',
+    requires = {
+      {'kyazdani42/nvim-web-devicons'},
+    },
+  }
+  packer.use {
     'nvim-telescope/telescope.nvim',
     requires = {
       {'nvim-lua/plenary.nvim'},
@@ -71,7 +77,7 @@ end
 packer.startup(packer_startup_fn)
 
 require('plugins/onedark')
-require('plugins/lualine')
+require('plugins/line')
 require('plugins/comment')
 require('plugins/treesitter')
 require('plugins/git')
