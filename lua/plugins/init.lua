@@ -70,6 +70,7 @@ local packer_startup_fn = function ()
         { 'kyazdani42/nvim-web-devicons' },
       },
   }
+  packer.use { "akinsho/toggleterm.nvim" }
   packer.use {
     'nvim-telescope/telescope.nvim',
     requires = {

@@ -131,11 +131,17 @@ Hot keys of floating windows start by `<space>`
 - File browser: `<space>f`
 - Buffer list: `<space>b`
 - Treesitter-parsed token list: `<space>r`
-- Floating terminal: `<space>t`
 
 All windows can be closed via double `<esc>`.
 First `<esc>` is for leaving insert mode.
 Second `<esc>` is for closing floating windows.
+
+
+### UI
+
+Hot key of file explorer is "\`".
+Hot key to toggle a terminal is `<space>t`.
+Hot key to toggle all terminals is `<space>a`.
 
 
 ### Text Object

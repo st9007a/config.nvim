@@ -52,9 +52,6 @@ end
 
 lspsaga.init_lsp_saga()
 
-vim.api.nvim_set_keymap('n', '<space>t', '<cmd>Lspsaga open_floaterm<CR>', {noremap=true})
-vim.api.nvim_set_keymap('n', '<esc>', '<cmd>Lspsaga close_floaterm<CR>', {noremap=true})
-
 local capabilities = completion.get_capabilities()
 
 local servers = {
