@@ -12,3 +12,5 @@ require('options')
 require('mappings')
 require('filetype')
 require('highlight')
+
+vim.cmd [[set rtp+=/Users/st9007a/.config/nvim/docstring_generator]]
