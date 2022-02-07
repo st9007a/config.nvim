@@ -5,4 +5,4 @@ vim.o.incsearch = true
 vim.o.hlsearch = false
 vim.o.inccommand = 'nosplit'
 vim.o.wildignorecase = true
-vim.o.updatetime = 100
+vim.o.updatetime = 1000
