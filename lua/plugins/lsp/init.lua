@@ -6,13 +6,13 @@ local completion = require('plugins/lsp/completion')
 
 local table_copy = function(obj)
   local obj_copy = {}
-  for k,v in pairs(obj) do
+  for k, v in pairs(obj) do
     obj_copy[k] = v
   end
   return obj_copy
 end
 
-local table_merge = function (t1, t2)
+local table_merge = function(t1, t2)
   for k, v in pairs(t2) do
     t1[k] = v
   end
@@ -21,7 +21,7 @@ end
 
 local on_attach = function(client, bufnr)
 
-  local opts = { noremap=true, silent=true }
+  local opts = { noremap = true, silent = true }
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -46,7 +46,7 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '[e', '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', ']e', '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
 
-  vim.api.nvim_command('autocmd BufWritePost * lua vim.lsp.buf.formatting()')
+  vim.api.nvim_command('autocmd BufWritePre * lua vim.lsp.buf.formatting()')
   vim.api.nvim_command('autocmd CursorHoldI * Lspsaga signature_help')
 end
 
@@ -63,12 +63,12 @@ local servers = {
 }
 
 local default_setup = {
-    on_attach = on_attach,
-    flags = {
-      -- This will be the default in neovim 0.7+
-      debounce_text_changes = 150,
-    },
-    capabilities = capabilities,
+  on_attach = on_attach,
+  flags = {
+    -- This will be the default in neovim 0.7+
+    debounce_text_changes = 150,
+  },
+  capabilities = capabilities,
 }
 
 

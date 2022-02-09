@@ -1,7 +1,6 @@
 local version = vim.version()
 
-if (version.minor > 6)
-then
+if (version.minor > 6) then
   vim.g.do_filetype_lua = 1
   vim.g.did_load_filetypes = 0
 end
