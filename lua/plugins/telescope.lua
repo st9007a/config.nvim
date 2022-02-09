@@ -20,6 +20,12 @@ local keymap_options = { noremap = true }
 
 vim.api.nvim_set_keymap(
   'n',
+  '<space>g',
+  [[<cmd>lua require'telescope.builtin'.live_grep(require('telescope.themes').get_ivy({}))<CR>]],
+  keymap_options
+)
+vim.api.nvim_set_keymap(
+  'n',
   '<space>s',
   [[<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({}))<CR>]],
   keymap_options

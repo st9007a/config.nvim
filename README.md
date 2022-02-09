@@ -29,6 +29,7 @@ The following languages will be supported soon (maybe).
 
 - neovim >= v0.6.1
 - packer.nvim: [https://github.com/wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
+- ripgrep (for telescope.nvim): [https://github.com/BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep)
 
 ## Installation
 
@@ -123,12 +124,12 @@ Hot key of manually-triggered formatting is `fmt`:
 - In normal mode, it will run `vim.lsp.buf.formatting()`
 - In virtual mode, it will run `vim.lsp.buf.range_formatting()`
 
-### Floating Windows
+### Telescope
 
-Hot keys of floating windows start by `<space>`
+Hot keys of telescope plugin start by `<space>`
 
 - File finder: `<space>s`
-- File browser: `<space>f`
+- Live grep: `<space>g`
 - Buffer list: `<space>b`
 - Treesitter-parsed token list: `<space>r`
 
