@@ -46,7 +46,7 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '[e', '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', ']e', '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
 
-  vim.api.nvim_command('autocmd BufWritePre * lua vim.lsp.buf.formatting()')
+  vim.api.nvim_command('autocmd BufWritePost * lua vim.lsp.buf.formatting()')
   vim.api.nvim_command('autocmd CursorHoldI * Lspsaga signature_help')
 end
 
