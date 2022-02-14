@@ -7,7 +7,6 @@ vim.g.nvim_tree_icons = {
 vim.o.termguicolors = true
 
 vim.api.nvim_set_keymap('n', '`', ':NvimTreeToggle<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<C-a>', ':ToggleTermToggleAll<CR>', {noremap = true})
 
 require('nvim-web-devicons').setup {}
 require('lualine').setup({

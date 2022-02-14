@@ -142,7 +142,6 @@ Second `<esc>` is for closing floating windows.
 
 Hot key of file explorer is "\`".
 Hot key to toggle a terminal is `<C-\>`.
-Hot key to toggle all terminals is `<C-a>`.
 
 ### Text Object
 
