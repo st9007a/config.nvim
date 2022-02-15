@@ -51,7 +51,7 @@ local packer_startup_fn = function ()
   packer.use {
     'numToStr/Comment.nvim',
   }
-  packer.use {'navarasu/onedark.nvim'}
+  packer.use {'rebelot/kanagawa.nvim'}
   packer.use {
     'nvim-lualine/lualine.nvim',
     requires = {
@@ -82,7 +82,9 @@ end
 
 packer.startup(packer_startup_fn)
 
-require('plugins/onedark')
+vim.cmd("colorscheme kanagawa")
+
+-- require('plugins/onedark')
 require('plugins/ui')
 require('plugins/comment')
 require('plugins/treesitter')
