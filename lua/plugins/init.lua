@@ -82,9 +82,8 @@ end
 
 packer.startup(packer_startup_fn)
 
-vim.cmd("colorscheme kanagawa")
 
--- require('plugins/onedark')
+require('plugins/colorscheme')
 require('plugins/ui')
 require('plugins/comment')
 require('plugins/treesitter')

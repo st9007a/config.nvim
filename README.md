@@ -84,7 +84,7 @@ $ ./install_lua_language_server.sh
   - File browser
 - Toggle comment in the code.
 - UI
-  - Onedark
+  - Kanawaga color scheme
   - Status line
   - Devicons
 
