@@ -180,5 +180,4 @@ Hot keys to swap functions or function parameters also start by `[` or `]`
 
 ## Known Issues
 
-- `cmp-cmdline`: file path completion broke on latest HEAD. (Use 29ca81a)
 - `lspsaga.nvim`: hover behaviour is weird on latest HEAD. (Use 14c2f49)
