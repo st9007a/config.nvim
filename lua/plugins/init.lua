@@ -16,7 +16,10 @@ local packer = require('packer')
 local packer_startup_fn = function ()
   packer.use 'wbthomason/packer.nvim'
   packer.use 'neovim/nvim-lspconfig'
-  packer.use 'tami5/lspsaga.nvim'
+  packer.use {
+    'tami5/lspsaga.nvim',
+    commit = '14c2f49',
+  }
   packer.use {
     'jose-elias-alvarez/null-ls.nvim',
     requires = {
@@ -35,7 +38,10 @@ local packer_startup_fn = function ()
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-cmdline',
+      {
+        'hrsh7th/cmp-cmdline',
+        commit = '29ca81a',
+      },
       'saadparwaiz1/cmp_luasnip',
     },
   }
