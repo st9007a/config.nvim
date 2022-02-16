@@ -1,6 +1,16 @@
 local null_ls = require('null-ls')
+local u = require("null-ls.utils")
 
 null_ls.setup {
+  root_dir = u.root_pattern(
+     ".null-ls-root",
+     "Makefile",
+     ".git",
+     "pyproject.toml",
+     "setup.py",
+     "setup.cfg",
+     "Cargo.toml"
+   ),
   sources = {
     null_ls.builtins.formatting.trim_whitespace.with({
       disabled_filetypes = { "rust" },
