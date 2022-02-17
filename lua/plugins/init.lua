@@ -16,10 +16,7 @@ local packer = require('packer')
 local packer_startup_fn = function ()
   packer.use 'wbthomason/packer.nvim'
   packer.use 'neovim/nvim-lspconfig'
-  packer.use {
-    'tami5/lspsaga.nvim',
-    commit = '14c2f49',
-  }
+  packer.use 'tami5/lspsaga.nvim'
   packer.use {
     'jose-elias-alvarez/null-ls.nvim',
     requires = {

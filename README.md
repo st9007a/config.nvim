@@ -177,8 +177,3 @@ Hot keys to swap functions or function parameters also start by `[` or `]`
 - Modularize current configuration.
 - Add snippets.
 - Adjust colorscheme.
-
-## Known Issues
-
-- `lspsaga.nvim`: It will auto jump into floating window when hovering is called twice.
-    This make hovering can't be hooked to `CurosrHoldI`. (To fix it, use 14c2f49)
