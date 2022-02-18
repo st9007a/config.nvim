@@ -46,7 +46,9 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '[e', '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', ']e', '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
 
-  vim.api.nvim_command('autocmd BufWritePre * lua vim.lsp.buf.formatting()')
+  -- rustfmt breaks the code if hooking vim.lsp.buf.formatting() on BufWritePre
+  vim.api.nvim_command('autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync()')
+  vim.api.nvim_command('autocmd BufWritePre *.py,*.lua lua vim.lsp.buf.formatting()')
   vim.api.nvim_command('autocmd CursorHoldI * Lspsaga signature_help')
 end
 
