@@ -47,4 +47,5 @@ require('nvim-tree').setup({
 require('toggleterm').setup({
   open_mapping = [[<C-\>]],
   insert_mappings = false,
+  size = 30,
 })
