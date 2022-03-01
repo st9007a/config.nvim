@@ -115,9 +115,10 @@ Hot keys of popup behaviours start by `<leader>`:
 - Code action: `<leader>a`
 - Code lens: `<leader>l`
 - Rename: `<leader>r`
-- Show diagnoistcs on current line: `<leader>d`
 - Show document under cursor: `<leader>k`  (or `K` for convention)
 - Show signature under cursor: `<leader>s`
+- Show diagnoistcs on current line: `<leader>d`
+- Show document diagnoistcs on bottom window: `<leader>e`
 
 Hot key of manually-triggered formatting is `fmt`:
 

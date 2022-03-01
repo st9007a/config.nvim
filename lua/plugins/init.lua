@@ -39,6 +39,12 @@ local packer_startup_fn = function ()
       'saadparwaiz1/cmp_luasnip',
     },
   }
+  packer.use {
+    'folke/trouble.nvim',
+    requires = {
+      {'kyazdani42/nvim-web-devicons'},
+    },
+  }
   packer.use {'L3MON4D3/LuaSnip'}
   packer.use {
     'nvim-treesitter/nvim-treesitter',
