@@ -57,7 +57,10 @@ local packer_startup_fn = function ()
   packer.use {
     'numToStr/Comment.nvim',
   }
-  packer.use {'rebelot/kanagawa.nvim'}
+  packer.use({
+    "catppuccin/nvim",
+    as = "catppuccin",
+  })
   packer.use {
     'nvim-lualine/lualine.nvim',
     requires = {
