@@ -17,7 +17,7 @@ require('lualine').setup({
 
 require("bufferline").setup({
   options = {
-    numbers = "buffer_id",
+    numbers = "none",
     separator_style = "slant",
     show_buffer_icons = true,
     show_close_icon = false,
