@@ -47,5 +47,5 @@ require('nvim-tree').setup({
 require('toggleterm').setup({
   open_mapping = [[<C-\>]],
   insert_mappings = false,
-  direction = 'window',
+  direction = 'tab',
 })
