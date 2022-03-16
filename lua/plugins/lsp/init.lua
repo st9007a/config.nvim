@@ -81,3 +81,7 @@ for _, server in ipairs(servers) do
   setup = table_merge(setup, require('plugins.lsp.' .. server))
   lspconfig[server].setup(setup)
 end
+
+vim.diagnostic.config({
+  virtual_text = false,
+})
