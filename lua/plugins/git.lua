@@ -1,3 +1,5 @@
 local gitsigns = require('gitsigns')
 
-gitsigns.setup()
+gitsigns.setup({
+  attach_to_untracked = false,
+})
