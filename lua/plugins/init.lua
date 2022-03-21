@@ -47,6 +47,7 @@ local packer_startup_fn = function ()
     },
   }
   packer.use {'L3MON4D3/LuaSnip'}
+  packer.use {'rafamadriz/friendly-snippets'}
   packer.use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
