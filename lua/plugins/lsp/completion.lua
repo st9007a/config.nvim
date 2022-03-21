@@ -22,7 +22,6 @@ cmp.setup({
           nvim_lsp = "[LSP]",
           luasnip  = "[Snippet]",
           path     = "[Path]",
-          cmdlien  = "[Command]",
         })[entry.source.name]
         return vim_item
       end,
