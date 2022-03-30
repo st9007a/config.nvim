@@ -8,6 +8,9 @@ vim.o.wildignorecase = true
 vim.o.updatetime = 1000
 vim.o.laststatus = 3
 
+if (vim.version().minor > 6) then
+  vim.o.laststatus = 3
+end
 
 if vim.fn.executable('rg') then
   vim.o.grepprg = 'rg --no-heading --vimgrep --smart-case'
