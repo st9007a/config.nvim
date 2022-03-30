@@ -11,7 +11,7 @@ vim.api.nvim_set_keymap('n', '`', ':NvimTreeToggle<CR>', {noremap = true})
 require('nvim-web-devicons').setup {}
 require('lualine').setup({
   options = {
-    theme = 'catppuccin'
+    theme = 'catppuccin',
   }
 })
 
