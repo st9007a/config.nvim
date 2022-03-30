@@ -89,6 +89,7 @@ local packer_startup_fn = function ()
       {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
     }
   }
+  packer.use {'windwp/nvim-autopairs'}
 end
 
 packer.startup(packer_startup_fn)
@@ -101,3 +102,4 @@ require('plugins/treesitter')
 require('plugins/git')
 require('plugins/telescope')
 require('plugins/lsp')
+require('plugins/autopairs')

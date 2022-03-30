@@ -61,7 +61,7 @@ treesitter.setup {
   playground = {
     enable = true,
   },
-  docstring_generator = {
-    enable = true,
+  indent = {
+    enable = true
   },
 }
