@@ -12,7 +12,7 @@ if (vim.version().minor > 6) then
   vim.o.laststatus = 3
 end
 
-if vim.fn.executable('rg') then
+if vim.fn.executable('rg') ~= 0 then
   vim.o.grepprg = 'rg --no-heading --vimgrep --smart-case'
   vim.o.grepformat = '%f:%l:%c:%m'
 end
