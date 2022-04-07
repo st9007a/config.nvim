@@ -42,15 +42,15 @@ local on_attach = function(client, bufnr)
 
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>e', '<cmd>Trouble document_diagnostics<CR>', opts)
 
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'fmt', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'v', 'fmt', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'v', '<leader>f', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
 
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '[e', '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', ']e', '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
 
   -- formatting_sync is more stable than formatting
-  vim.api.nvim_command('autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()')
-  vim.api.nvim_command('autocmd CursorHoldI * Lspsaga signature_help')
+  -- vim.api.nvim_command('autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()')
+  -- vim.api.nvim_command('autocmd CursorHoldI * Lspsaga signature_help')
 end
 
 lspsaga.init_lsp_saga({
