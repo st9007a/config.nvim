@@ -120,10 +120,10 @@ Hot keys of popup behaviours start by `<leader>`:
 - Show diagnoistcs on current line: `<leader>d`
 - Show document diagnoistcs on bottom window: `<leader>e`
 
-Hot key of manually-triggered formatting is `fmt`:
+Hot key of manually-triggered formatting is `<leader>f`:
 
-- In normal mode, it will run `vim.lsp.buf.formatting()`
-- In virtual mode, it will run `vim.lsp.buf.range_formatting()`
+- In normal mode, it will run `vim.lsp.buf.formatting_sync()`
+- In virtual mode, it will run `vim.lsp.buf.range_formatting_sync()`
 
 ### Telescope
 
