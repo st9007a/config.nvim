@@ -10,6 +10,3 @@ require('plugins')
 require('options')
 require('mappings')
 require('filetype')
-
--- vim.cmd [[set rtp+=/Users/st9007a/.config/nvim/docstring_generator]]
--- vim.o.rtp = vim.o.rtp .. ',/Users/st9007a/.config/nvim/docstring_generator'
