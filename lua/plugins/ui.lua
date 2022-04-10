@@ -4,7 +4,6 @@ vim.g.nvim_tree_icons = {
     arrow_closed = '+',
   },
 }
-vim.o.termguicolors = true
 
 vim.api.nvim_set_keymap('n', '`', ':NvimTreeToggle<CR>', {noremap = true})
 
