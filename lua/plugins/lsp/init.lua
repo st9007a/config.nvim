@@ -50,7 +50,7 @@ local on_attach = function(client, bufnr)
 
   -- formatting_sync is more stable than formatting
   -- vim.api.nvim_command('autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()')
-  -- vim.api.nvim_command('autocmd CursorHoldI * Lspsaga signature_help')
+  vim.api.nvim_command('autocmd CursorHoldI * Lspsaga signature_help')
 end
 
 lspsaga.init_lsp_saga({
