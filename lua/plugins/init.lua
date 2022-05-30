@@ -85,6 +85,12 @@ local packer_startup_fn = function ()
   }
   packer.use {'windwp/nvim-autopairs'}
   packer.use {'lukas-reineke/indent-blankline.nvim'}
+  packer.use { 
+    'AmeerTaweel/todo.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+    },
+  }
 end
 
 packer.startup(packer_startup_fn)
