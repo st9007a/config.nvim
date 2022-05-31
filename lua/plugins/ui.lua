@@ -1,10 +1,3 @@
-vim.g.nvim_tree_icons = {
-  folder = {
-    arrow_open = '-',
-    arrow_closed = '+',
-  },
-}
-
 vim.api.nvim_set_keymap('n', '`', ':NvimTreeToggle<CR>', {noremap = true})
 
 require('nvim-web-devicons').setup {}
@@ -38,6 +31,16 @@ require('nvim-tree').setup({
         { key = 'rm', action = 'remove' },
         { key = 'dd', action = 'cut' },
         { key = 'yy', action = 'copy' },
+      },
+    },
+  },
+  renderer = {
+    icons = {
+      glyphs = {
+        folder = {
+          arrow_open = '-',
+          arrow_closed = '+',
+        },
       },
     },
   },
