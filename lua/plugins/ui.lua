@@ -44,6 +44,10 @@ require('nvim-tree').setup({
       },
     },
   },
+  filesystem_watchers = {
+    enable = true,
+    interval = 100,
+  },
 })
 
 require('toggleterm').setup({
