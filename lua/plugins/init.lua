@@ -78,6 +78,7 @@ local packer_startup_fn = function ()
   packer.use { "akinsho/toggleterm.nvim" }
   packer.use {
     'nvim-telescope/telescope.nvim',
+    tag = '0.1.0',
     requires = {
       {'nvim-lua/plenary.nvim'},
       {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
